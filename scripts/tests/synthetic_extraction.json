@@ -1,0 +1,12 @@
+{
+  "_note": "SYNTHETIC TEST DATA, NOT REAL. company_name quote is correct (expect PASS); stage_raw quote has one character changed, 试 -> 验 (expect FAIL).",
+  "company_name": {"value": "测试机器人有限公司", "evidence_quote": "测试机器人有限公司是一家虚构的公司"},
+  "stage_raw":    {"value": "测试轮", "evidence_quote": "该公司宣布完成虚构的测验轮融资"},
+  "amount_raw":   {"value": null, "evidence_quote": null},
+  "currency_raw": {"value": null, "evidence_quote": null},
+  "date_in_text": {"value": null, "evidence_quote": null},
+  "article_date": {"value": null, "evidence_quote": null},
+  "investors": [],
+  "lead_stated": {"value": null, "evidence_quote": null},
+  "multiple_rounds_in_text": {"value": null, "evidence_quote": null}
+}
