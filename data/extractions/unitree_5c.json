@@ -1,0 +1,13 @@
+{
+  "company_name": {"value": "宇树科技", "evidence_quote": "宇树科技获得新一轮融资"},
+  "stage_raw":    {"value": null, "evidence_quote": null},
+  "amount_raw":   {"value": null, "evidence_quote": null},
+  "currency_raw": {"value": null, "evidence_quote": null},
+  "date_in_text": {"value": "7月3日", "evidence_quote": "7月3日，首程控股有限公司发布公告，宣布北京机器人产业发展投资基金对宇树科技进行追加投资。"},
+  "article_date": {"value": "2025-07-07 13:59", "evidence_quote": "2025-07-07 13:59发布于北京IT桔子官方账号"},
+  "investors": [
+    {"name": "北京机器人产业发展投资基金", "role_raw": "追加投资", "evidence_quote": "宣布北京机器人产业发展投资基金对宇树科技进行追加投资"}
+  ],
+  "lead_stated": {"value": null, "evidence_quote": null},
+  "multiple_rounds_in_text": {"value": true, "evidence_quote": "C+轮融资仅一周后，又有新的投资方追投"}
+}

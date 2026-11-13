@@ -9,14 +9,27 @@ null unless a source in raw/ states them, with a supporting quote_zh.
 
 - round_id: R001, R002, ... unique, never reused
 - company_id: must exist in Companies
-- stage_raw: stage text exactly as in the source (e.g. "Pre-A+轮"). Never edited.
+- event_type: investor_round or incentive_platform. incentive_platform =
+  capital increase by the employee incentive platform (上海宇翼);
+  investor_round = any other capital increase in scope (see
+  docs/scope.md). incentive_platform rows are excluded from nominal
+  pivots.
+- agreement_date: YYYY-MM-DD, date of the capital increase agreement as
+  stated in the prospectus, with its quote. Null if the prospectus does not
+  state it.
+- registration_date: YYYY-MM-DD, date of the business registration change
+  (工商变更登记) for the capital increase as stated in the prospectus, with
+  its quote. Null if the prospectus does not state it. Pivots group by
+  registration_date.
+- stage_raw: optional; not used in pivots. Stage text exactly as in the
+  source (e.g. "Pre-A+轮"). Never edited.
   Allowed sources: a Tier 1 announcement by the company or investor, or a
   Tier 2 report that quotes the company side, copied as written with its
   quote. A prospectus (招股书) or other regulator filing is NOT a source for
   stage_raw (it lists capital increases without round names). Never derive
   a stage from the order of capital increases in a prospectus. If sources
   disagree on the stage, the row stays unverified.
-- stage: only from the standard list: Seed (种子轮), 天使轮, Pre-A, A轮,
+- stage: optional; not used in pivots. Only from the standard list: Seed (种子轮), 天使轮, Pre-A, A轮,
   A+轮, B轮, B+轮, C轮, C+轮, D轮, E轮, F轮 and later letters, Strategic
   (战略融资), Pre-IPO, Other. Surface-form variants of a list value are
   accepted: trailing "融资", with or without "轮", and case differences
@@ -24,7 +37,9 @@ null unless a source in raw/ states them, with a supporting quote_zh.
   this spelling normalization, stage = Other. Plus-suffixed variants not in
   the list (Pre-A+, A++, D+轮) remain Other. This is spelling normalization,
   not mapping between different stages (e.g. "Pre-A+" is Other, not Pre-A).
-- announce_date: YYYY-MM-DD, date of FIRST public announcement, taken from
+- announce_date: optional; not used in pivots. Filled only from a dated
+  public report, and always together with announce_date_basis.
+  YYYY-MM-DD, date of FIRST public announcement, taken from
   the earliest dated public report of the round (a Tier 1 announcement or a
   Tier 2 report; Tier 3 is never used). Prospectuses (招股书) and other
   regulator filings published after the round are NOT used for
@@ -33,7 +48,8 @@ null unless a source in raw/ states them, with a supporting quote_zh.
   states the announcement date, announce_date uses it. If it only says
   "近日" or gives a partial date, announce_date = publish_date of that
   report. If no dated Tier 1 or Tier 2 public report exists, announce_date
-  is null and the row stays unverified.
+  is null. For prospectus-based rows, a null announce_date does not block
+  verification (see Rule 2a).
 - announce_date_basis: text_stated, publish_date or media_publish_date.
   text_stated when the earliest report's text states the announcement
   date; publish_date when announce_date is the publish_date of a Tier 1
@@ -59,6 +75,10 @@ null unless a source in raw/ states them, with a supporting quote_zh.
 
 Pivots use only: status = verified AND amount_status = disclosed AND
 amount_qualifier = exact. Approx rows are kept and shown in a separate table.
+Nominal pivots also require event_type = investor_round. Pivots group by
+registration_date; rows with a null registration_date are left out of
+pivots and listed separately. stage, stage_raw and announce_date are not
+used in pivots.
 
 ### Unit multipliers
 
@@ -102,14 +122,32 @@ names, aliases or merge based on it.
 
 ## Sheet Round_Investor
 
-round_id, investor_id, role (lead / participant / unknown). If the source
-does not state the lead, use unknown. Never guess from name order.
+round_id, investor_id, role (lead / participant / unknown), amount_wan_cny,
+share_count_wan.
+
+- role: if the source does not state the lead, use unknown. Never guess
+  from name order. The prospectus does not state a lead, so
+  prospectus-based rows use role = unknown.
+- amount_wan_cny: the investor's own capital contribution for this event,
+  copied as written from the prospectus table (in 万元), never computed.
+  If the table gives the amount in another unit, leave null and flag for
+  the project owner's review (no unit conversion).
+- share_count_wan: shares subscribed by the investor (认购股份数), copied as
+  written from the prospectus table (in 万股), never computed. Same rule for
+  another unit as amount_wan_cny.
+
+Both values need a verbatim quote from the saved prospectus file.
 
 ## Sheet Sources
 
 source_id, round_id, company_id, url, local_file (path in raw/), sha256
 (hash of the local file), tier (1/2/3), publisher, publish_date,
-access_date, quote_zh (the exact source sentence supporting the value).
+access_date, quote_zh (the exact source sentence supporting the value),
+origin_note.
+
+origin_note: for every source row that supports a prospectus-based Rounds
+or Round_Investor value, the text "single-origin (prospectus)". Null for
+other sources.
 
 round_id may be blank when the source supports a company profile field.
 company_id is nullable.
@@ -134,6 +172,23 @@ round_id, field, llm_value, true_value, correct (Y/N), error_type, note.
    release count as ONE source. Otherwise status = unverified and the row
    is excluded from pivots. Meeting this rule does not make a row verified;
    only the project owner sets status = verified, after manual checking.
+   Rule 2 does not apply to prospectus-based rows; Rule 2a replaces it for
+   those rows only.
+2a. Verification rule for prospectus-based rows. Only the project owner
+   may set status = verified, and only after all of:
+   (a) every quote for the row passes scripts/check_quotes.py;
+   (b) the sum of amount_wan_cny over the event's Round_Investor rows
+       equals the 合计 stated in the prospectus for that event;
+   (c) the yearly sum of events, both investor_round and
+       incentive_platform (by registration_date year), reconciles
+       with the cash-flow line 吸收投资收到的现金 in the prospectus, with
+       any gap recorded in Verification_Log (round_id blank,
+       field = cash_flow_reconciliation, year and gap in note).
+   Sums in (b) and (c) are Excel formulas used for checking only; their
+   results are never stored as data values. The Sources sheet must state
+   that these rows are single-origin (prospectus) (see origin_note).
+   Press reports are comparison only: they never fill or override a
+   prospectus value.
 3. Never guess or take a midpoint for vague amounts: use undisclosed.
 4. Store original amount and currency as-is. Never overwrite the original.
    FX conversion is out of scope for now: RMB and USD rounds are reported
@@ -245,3 +300,36 @@ Changed 2026-11-13 (fourth revision):
   field is null, but company_name (the company the article is about) and
   article_date are still filled, each with its evidence_quote, if the
   text shows them. Neither is round data.
+
+Changed 2026-11-13 (fifth revision): scope changed to a single-company case
+study.
+
+- Scope: the multi-company embodied-AI scope is retired and kept in
+  docs/scope.md under "Original scope (retired 2026-11-13)". Reason: the
+  pilot of a non-IPO company (穹彻智能) produced 0 of 5 rounds with a
+  specific amount.
+- New scope: Unitree (宇树科技) funding events 2022-2025 from its STAR
+  Market prospectus in raw/unitree/. An event is a capital increase (增资)
+  that brings cash into the company, as recorded in the prospectus.
+  Excluded: capital reserve conversion (资本公积转增股本), secondary share
+  transfers between shareholders, shareholding reform (整体变更), IPO.
+- Rounds: added event_type (investor_round / incentive_platform);
+  employee incentive platform increases (上海宇翼) are incentive_platform
+  and excluded from nominal pivots.
+- Rounds: added agreement_date and registration_date (date of 工商变更登记
+  stated in the prospectus). Pivots group by registration_date.
+- Rounds: stage and stage_raw are optional and not used in pivots.
+  announce_date is optional, only from a dated public report, always with
+  announce_date_basis, and not used in pivots.
+- Round_Investor: added amount_wan_cny (the investor's own contribution as
+  written in the prospectus table, copied, never computed) and
+  share_count_wan (认购股份数). role = unknown for prospectus-based rows
+  (the prospectus does not state a lead).
+- Sources: added origin_note; prospectus-based rows must be stated as
+  single-origin (prospectus).
+- Rule 2a: verification rule for prospectus-based rows, replacing Rule 2
+  for these rows only: quotes pass scripts/check_quotes.py; investor
+  amounts sum to the stated 合计 per event; yearly event sums reconcile
+  with 吸收投资收到的现金, with any gap recorded in Verification_Log.
+  Press reports are comparison only.
+- README.md added, with method, rules and limitations.

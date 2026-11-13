@@ -1,0 +1,19 @@
+{
+  "company_name": {"value": "宇树科技", "evidence_quote": "2025 年 6 月，宇树科技完成 C 轮融资，募资规模约 7 亿元"},
+  "stage_raw":    {"value": "C 轮", "evidence_quote": "2025 年 6 月，宇树科技完成 C 轮融资，募资规模约 7 亿元"},
+  "amount_raw":   {"value": "约 7 亿元", "evidence_quote": "2025 年 6 月，宇树科技完成 C 轮融资，募资规模约 7 亿元"},
+  "currency_raw": {"value": "元", "evidence_quote": "募资规模约 7 亿元"},
+  "date_in_text": {"value": "2025 年 6 月", "evidence_quote": "2025 年 6 月，宇树科技完成 C 轮融资"},
+  "article_date": {"value": "2025-07-07", "evidence_quote": "2025-07-07 13:59发布于北京IT桔子官方账号"},
+  "investors": [
+    {"name": "中国移动旗下基金", "role_raw": "联合领投", "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁、吉利资本联合领投"},
+    {"name": "腾讯", "role_raw": "联合领投", "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁、吉利资本联合领投"},
+    {"name": "锦秋", "role_raw": "联合领投", "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁、吉利资本联合领投"},
+    {"name": "阿里", "role_raw": "联合领投", "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁、吉利资本联合领投"},
+    {"name": "蚂蚁", "role_raw": "联合领投", "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁、吉利资本联合领投"},
+    {"name": "吉利资本", "role_raw": "联合领投", "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁、吉利资本联合领投"}
+  ],
+  "lead_stated": {"value": true, "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁、吉利资本联合领投"},
+  "multiple_rounds_in_text": {"value": true, "evidence_quote": "“宇树科技”C+轮融资仅一周后，又有新的投资方追投；大模型独角兽“智谱”再获10亿元战略融资｜每周十大股权投资"},
+  "attribution":  {"value": null, "evidence_quote": null}
+}

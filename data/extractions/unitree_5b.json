@@ -1,0 +1,18 @@
+{
+  "company_name": {"value": "宇树科技", "evidence_quote": "宇树科技已于近期完成了去年底开启的C轮融资"},
+  "stage_raw": {"value": "C轮", "evidence_quote": "宇树科技已于近期完成了去年底开启的C轮融资"},
+  "amount_raw": {"value": null, "evidence_quote": null},
+  "currency_raw": {"value": null, "evidence_quote": null},
+  "date_in_text": {"value": "近期", "evidence_quote": "宇树科技已于近期完成了去年底开启的C轮融资"},
+  "article_date": {"value": "2025年06月19日 17:42", "evidence_quote": "2025年06月19日 17:42 21世纪经济报道 21财经APP 尹华禄"},
+  "investors": [
+    {"name": "中国移动旗下基金", "role_raw": "共同领投", "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁和吉利资本共同领投"},
+    {"name": "腾讯", "role_raw": "共同领投", "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁和吉利资本共同领投"},
+    {"name": "锦秋", "role_raw": "共同领投", "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁和吉利资本共同领投"},
+    {"name": "阿里", "role_raw": "共同领投", "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁和吉利资本共同领投"},
+    {"name": "蚂蚁", "role_raw": "共同领投", "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁和吉利资本共同领投"},
+    {"name": "吉利资本", "role_raw": "共同领投", "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁和吉利资本共同领投"}
+  ],
+  "lead_stated": {"value": true, "evidence_quote": "由中国移动旗下基金、腾讯、锦秋、阿里、蚂蚁和吉利资本共同领投"},
+  "multiple_rounds_in_text": {"value": true, "evidence_quote": "2024年初，曾完成近10亿元B2轮融资。"}
+}

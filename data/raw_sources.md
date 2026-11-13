@@ -43,3 +43,34 @@ See data/leads_unitree.md.
 | sina_infaqzvp3786779.txt | https://finance.sina.com.cn/tech/discovery/2025-06-20/doc-infaqzvp3786779.shtml | 新浪科技 (快科技) | 2026-11-13 | |
 | sina_infasynr2900739.txt | https://finance.sina.com.cn/tech/roll/2025-06-20/doc-infasynr2900739.shtml | 新浪科技 (来源：IT桔子) | 2026-11-13 | Aggregator, Tier 3 |
 | qq_20250707A053XA00.txt | https://news.qq.com/rain/a/20250707A053XA00 | 腾讯新闻 (IT桔子官方账号) | 2026-11-13 | Aggregator, Tier 3 |
+
+## raw/noematrix/ (穹彻智能), access date 2026-11-13
+
+Downloaded with curl. Originals in raw/noematrix/html/; full visible text
+in raw/noematrix/*.txt (scripts/styles removed, no summarizing). LEADS, not
+verified. See data/leads_noematrix.md.
+
+| File (raw/noematrix/) | URL | Publisher | Access date | Note |
+|---|---|---|---|---|
+| company_about.txt | https://www.noematrix.ai/about | 穹彻智能 (company website) | 2026-11-13 | News list with dates |
+| company_contact.txt | https://www.noematrix.ai/contact | 穹彻智能 (company website) | 2026-11-13 | No address shown |
+| company_news_pre-a.txt | https://www.noematrix.ai/news/noematrix_pre-a | 穹彻智能 (company website) | 2026-11-13 | Metadata: publish 2024-09-06, created 2024-09-13 |
+| company_news_pre-a-plus.txt | https://www.noematrix.ai/news/noematrix_pre-a+ | 穹彻智能 (company website) | 2026-11-13 | Metadata: publish 2024-12-05, created 2025-05-09 |
+| company_news_pre-a-plusplus.txt | https://www.noematrix.ai/news/noematrix-pre-a++ | 穹彻智能 (company website) | 2026-11-13 | Metadata: publish 2025-04-10, created 2025-05-09 |
+| company_news_alibaba.txt | https://www.noematrix.ai/news/noematrix-alibaba | 穹彻智能 (company website) | 2026-11-13 | Metadata: publish 2025-10-17, created 2025-12-09 |
+| pedaily_202409_539673.txt | https://news.pedaily.cn/202409/539673.shtml | 投资界 (pedaily.cn) | 2026-11-13 | Re-fetch of the page in raw/05_noematrix_pedaily.txt |
+| cnfin_20240906_4100432.txt | https://www.cnfin.com/gs-lb/detail/20240906/4100432_1.html | 中国金融信息网 (新华财经) | 2026-11-13 | |
+| 36kr_2944184307374722.txt | https://www.36kr.com/p/2944184307374722 | 36氪 | 2026-11-13 | Repost of WeChat account 铅笔道 |
+| tmtpost_7240663.txt | https://www.tmtpost.com/7240663.html | 钛媒体 (钛度号) | 2026-11-13 | Self-media account |
+| chinaventure_20241205_384170.txt | https://m.chinaventure.com.cn/news/108-20241205-384170.html | 投中网 | 2026-11-13 | |
+| 36kr_3065605732541830.txt | https://www.36kr.com/p/3065605732541830 | 36氪 | 2026-11-13 | |
+| thepaper_29556165.txt | https://m.thepaper.cn/newsDetail_forward_29556165 | 澎湃新闻·澎湃号 (新智元) | 2026-11-13 | Self-media account |
+| baai_41612.txt | https://hub.baai.ac.cn/view/41612 | 智源社区 (repost of 新智元 WeChat) | 2026-11-13 | Same article as thepaper_29556165 |
+| pedaily_202504_548157.txt | https://news.pedaily.cn/202504/548157.shtml | 投资界 (pedaily.cn) | 2026-11-13 | |
+| cnyes_144373.txt | https://hao.cnyes.com/post/144373 | 鉅亨網 鉅亨號 (repost of 硬氪) | 2026-11-13 | Traditional Chinese |
+| pedaily_202510_555985.txt | https://news.pedaily.cn/202510/555985.shtml | 投资界 (pedaily.cn) | 2026-11-13 | |
+| cls_2173531.txt | https://www.cls.cn/detail/2173531 | 财联社 (科创板日报) | 2026-11-13 | |
+| tmtpost_7735591.txt | https://www.tmtpost.com/7735591.html | 钛媒体 (钛度号) | 2026-11-13 | Self-media account |
+| 36kr_3512926271806337.txt | https://www.36kr.com/p/3512926271806337 | 36氪 | 2026-11-13 | |
+| 163_KVMQ0ES005118DFD.txt | https://c.m.163.com/news/a/KVMQ0ES005118DFD.html | 网易号 (36氪 official account, 硬氪) | 2026-11-13 | 2026 round, out of period |
+| company_privacy.txt | https://www.noematrix.ai/legal/privacy | 穹彻智能 (company website) | 2026-11-13 | Privacy policy; states registered address (mainland China basis) |

@@ -1,7 +1,7 @@
 # Project rules
 
-Goal: a verified database of China embodied-AI funding rounds, 2022-2025.
-Validity over volume. Target: 30 verified rows.
+Goal: a verified funding history of Unitree (宇树科技), 2022-2025, built from
+its STAR Market prospectus. Validity over volume. Single-company case study.
 
 ## Hard rules
 - NEVER fill any data field from your own knowledge or memory.
