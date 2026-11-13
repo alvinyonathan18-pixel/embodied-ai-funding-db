@@ -138,6 +138,13 @@ share_count_wan.
 
 Both values need a verbatim quote from the saved prospectus file.
 
+Thousands separators: the numeric columns amount_wan_cny, share_count_wan
+and stated_total_wan_cny store the number without thousands separators
+(e.g. "8,000.0833" is stored as 8000.0833). The decimal point and every
+digit stay unchanged. The same applies to the value of the matching
+extraction field (stated_total in data/extractions/*.json). The original
+printed form is preserved in evidence_quote.
+
 ## Sheet Sources
 
 source_id, round_id, company_id, url, local_file (path in raw/), sha256
@@ -333,3 +340,12 @@ study.
   with 吸收投资收到的现金, with any gap recorded in Verification_Log.
   Press reports are comparison only.
 - README.md added, with method, rules and limitations.
+
+Changed 2026-11-13 (sixth revision):
+
+- Numeric columns (amount_wan_cny, share_count_wan, stated_total_wan_cny)
+  store the number without thousands separators, e.g. "8,000.0833" is
+  stored as 8000.0833. The decimal point and every digit stay unchanged.
+  The same applies to the matching extraction value (stated_total). The
+  original printed form is preserved in evidence_quote. Reason:
+  scripts/check_sums.py rejects thousands separators by design.

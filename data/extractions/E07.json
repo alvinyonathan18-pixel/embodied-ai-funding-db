@@ -1,0 +1,15 @@
+{
+  "_note": "Source: raw/unitree/sse_prospectus_shenbaogao_20260320.txt, section 11 (1) 股权融资, lines 2167-2210 and 2226-2227. agreement_date: the date is on line 2171 (shareholder meeting); the agreement is signed '同日' (line 2172) and named on line 2173, so no single-line quote shows date and agreement together. registration_date: the date is on line 2226; '工商变更登记' is on line 2227; the registration covers both (1) 股权融资 and (2) 股权激励计划扩容. stated_total: '合计' is on line 2209; the figure is on line 2210.",
+  "agreement_date": {
+    "value": "2025-06-06",
+    "evidence_quote": "2025 年 6 月 6 日，宇树科技召开 2025 年第三次临时股东会"
+  },
+  "registration_date": {
+    "value": "2025-06-12",
+    "evidence_quote": "2025 年 6 月 12 日，宇树科技就上述 2025 年 6 月股权增资、股权激励计划"
+  },
+  "stated_total": {
+    "value": "69449.6968",
+    "evidence_quote": "15.0140        69,449.6968"
+  }
+}
