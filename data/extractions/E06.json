@@ -1,0 +1,15 @@
+{
+  "_note": "Source: raw/unitree/sse_prospectus_shenbaogao_20260320.txt, section 7、2024 年第二次股权转让及第二次增资, lines 1978-2023. The share transfer table (lines 1980-1989) is not cash into the company and is not extracted. agreement_date: the date is on line 1991; 《增资协议》 is named on line 1993, so no single-line quote shows date and agreement together. registration_date: the 工商变更登记 covers BOTH the share transfer and the capital increase ('上述股权转让、增资事项'); the full date '2024 年 9 月 13 日' is on line 2022 (not split); '变更登记及备案' continues on line 2023. stated_total: '合计' is on line 2018; the figures are on line 2019 (认缴注册资本 19.5152, 增资款 28,470.5173).",
+  "agreement_date": {
+    "value": "2024-08-31",
+    "evidence_quote": "2024 年 8 月 31 日，宇树有限、宇树有限原股东与新增股东机器人基金、"
+  },
+  "registration_date": {
+    "value": "2024-09-13",
+    "evidence_quote": "2024 年 9 月 13 日，宇树有限就上述股权转让、增资事项办理了工商"
+  },
+  "stated_total": {
+    "value": "28470.5173",
+    "evidence_quote": "19.5152                 28,470.5173"
+  }
+}
