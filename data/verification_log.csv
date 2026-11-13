@@ -6,3 +6,5 @@ unitree-5b(v2),amount_raw,null,null,Y,,"Article gives no amount for this round; 
 unitree-5c(v2),amount_raw,"约 7 亿元","约 7 亿元",Y,,"Matches source text incl. spaces; Tier 3 aggregator, no attribution"
 unitree-5c(v2),investors,"6 named investors","6 named investors",Y,,"Same 6 as 5b_v2; one origin, not independent"
 unitree-5c(v2),stage_raw,"C 轮","C+轮 in title, C 轮 in body",N,source_conflict,"Source disagrees with itself; row stays unverified"
+E06,"investor_rows rows 1-6 (机器人基金, 中关村科学城, 汉海信息, 厦门雅恒, 中证投资, 经纬壹号)","rows 1-6 assigned by position","match for all 14 rows; sum equals stated 合计 28470.5173",Y,,"Issue: in the text extraction the amounts sit on different lines from the investor names, so rows were assigned by position. Check: compared against the rendered PDF page images (SSE 申报稿, printed pages 1-1-46 and 1-1-47). Checker: alvin"
+E06,registration_date,2024-09-13,2024-09-13,Y,,"Issue: this single 工商变更登记 covers both the share transfer (股权转让) and the capital increase, so it is not specific to the capital increase. The 股东会 and the 《增资协议》 are both dated 2024-08-31. Result: value is correct as written; limitation noted for README"
