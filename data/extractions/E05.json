@@ -1,0 +1,15 @@
+{
+  "_note": "Source: raw/unitree/sse_prospectus_shenbaogao_20260320.txt, section 6、2024 年第一次增资, lines 1900-1935. agreement_date: the date is on line 1902; 《增资协议》 is named on line 1906, so no single-line quote shows date and agreement together. registration_date: the year '2024' is at the end of line 1934; the month and day and '工商变更登记' are on line 1935 (quoted). stated_total: '合计' is on line 1931; the figures are on line 1932 (认缴注册资本 46.4551, 增资款 60,034.4827).",
+  "agreement_date": {
+    "value": "2024-01-31",
+    "evidence_quote": "2024 年 1 月 31 日，宇树有限、宇树有限原股东与新增股东汉海信息"
+  },
+  "registration_date": {
+    "value": "2024-02-02",
+    "evidence_quote": "年 2 月 2 日，宇树有限就上述增资事项办理了工商变更登记及备案"
+  },
+  "stated_total": {
+    "value": "60034.4827",
+    "evidence_quote": "46.4551                       60,034.4827"
+  }
+}

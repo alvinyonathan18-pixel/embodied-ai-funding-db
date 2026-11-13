@@ -135,11 +135,17 @@ share_count_wan.
 - share_count_wan: shares subscribed by the investor (认购股份数), copied as
   written from the prospectus table (in 万股), never computed. Same rule for
   another unit as amount_wan_cny.
+- registered_capital_wan: registered capital subscribed by the investor
+  (认缴注册资本), copied as written from the event's capital increase
+  (增资) table in the prospectus (in 万元), never computed. Same rule for
+  another unit as amount_wan_cny. Null when the event's table does not
+  give it (e.g. tables that give 认购股份数 instead). In
+  data/investor_rows.csv this is the column registered_capital_wan.
 
-Both values need a verbatim quote from the saved prospectus file.
+All three values need a verbatim quote from the saved prospectus file.
 
-Thousands separators: the numeric columns amount_wan_cny, share_count_wan
-and stated_total_wan_cny store the number without thousands separators
+Thousands separators: the numeric columns amount_wan_cny, share_count_wan,
+registered_capital_wan and stated_total_wan_cny store the number without thousands separators
 (e.g. "8,000.0833" is stored as 8000.0833). The decimal point and every
 digit stay unchanged. The same applies to the value of the matching
 extraction field (stated_total in data/extractions/*.json). The original
@@ -349,3 +355,13 @@ Changed 2026-11-13 (sixth revision):
   The same applies to the matching extraction value (stated_total). The
   original printed form is preserved in evidence_quote. Reason:
   scripts/check_sums.py rejects thousands separators by design.
+
+Changed 2026-11-13 (seventh revision):
+
+- Round_Investor: added registered_capital_wan (认缴注册资本, in 万元),
+  copied as written from the event's 增资 table, never computed; null when
+  the table does not give it. Thousands-separator rule applies. Added as
+  the last column of data/investor_rows.csv; empty for the existing E07
+  rows (the E07 table gives 认购股份数, not 认缴注册资本). Reason: the
+  2024 capital increase tables (e.g. E05, 2024 年第一次增资) give
+  认缴注册资本 instead of 认购股份数.
