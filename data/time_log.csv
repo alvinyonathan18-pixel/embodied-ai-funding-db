@@ -1,0 +1,6 @@
+step,minutes,note
+extraction_v1_both,11,"13:24-13:35, 2 files"
+fix_prompt_and_reextract,,
+check_quotes,,
+manual_verification_incl_prospectus,,
+total_unitree_round_5,63,"13:24-14:27 wall clock, includes prompt fix (one-off)"
