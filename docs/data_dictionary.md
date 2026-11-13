@@ -217,3 +217,31 @@ Changed 2026-11-13 (second revision):
   Tier 2 report quoting the company side, copied as written with its
   quote. Never derived from the order of capital increases in a
   prospectus. If sources disagree on the stage, the row stays unverified.
+
+Changed 2026-11-13 (third revision):
+
+- Extraction prompt: added an optional "Target round" input line above
+  <source> (short description, no amounts, dates or investor names). If
+  given, only that round is extracted, even when it is background in the
+  text; if it is not in the text, all fields are null.
+- Extraction prompt: multiple_rounds_in_text is true only when the text
+  announces or reports more than one round as news; an earlier round
+  mentioned as history does not count.
+- Extraction prompt: added attribution field (words saying who the
+  information comes from, copied as written, e.g. "有媒体报道",
+  "公司表示"; null if none), with evidence_quote.
+- Extraction prompt: amounts with spaces between digits and units
+  (e.g. "7 亿元") are copied exactly as written.
+
+Changed 2026-11-13 (fourth revision):
+
+- Extraction prompt: the Target round line now defaults to
+  "Target round (optional): NONE" so the template can be copied as-is;
+  NONE is treated as no target line.
+- Extraction prompt: the target line may not contain amounts, exact dates
+  or investor names; a rough period such as "around June 2025" is
+  allowed. Values are never copied from the target line.
+- Extraction prompt: if the target round is not in the text, every round
+  field is null, but company_name (the company the article is about) and
+  article_date are still filled, each with its evidence_quote, if the
+  text shows them. Neither is round data.
