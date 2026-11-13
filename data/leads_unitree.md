@@ -30,11 +30,25 @@ Caveats on the prospectus:
 - Text was extracted with `pdftotext -layout`. Table columns are partly
   misaligned in the .txt (names and numbers on shifted lines). Check table
   values against the PDF in `raw/unitree/pdf/`.
-- It was first published 2026-03-20, outside the 2022-2025 period. If it
-  is the earliest Tier 1 announcement, announce_date handling under
-  data_dictionary.md (text_stated vs publish_date) needs an owner decision:
-  the dates it states are agreement / shareholder-meeting / registration
-  dates, not announcement dates.
+- It was first published 2026-03-20, outside the 2022-2025 period. Per the
+  owner decision of 2026-11-13 (docs/data_dictionary.md), it is Tier 1 for
+  amount, stage and investors but NOT for announce_date. The dates it
+  states (agreement / shareholder meeting / registration) are never used
+  as announce_date.
+
+## Owner decisions (2026-11-13)
+
+1. Prospectus: Tier 1 for amount, stage and investors, not for
+   announce_date. announce_date comes from the earliest dated Tier 1 or
+   Tier 2 public report; with a Tier 2 report the basis is
+   media_publish_date. Date matching under Rule 2 applies only between
+   sources that report an announcement date.
+2. B2 (row 3): no amount is picked. Both figures are kept as written
+   (press `近10亿元人民币`, prospectus 合计 `60,034.4827` 万元). Discrepancy
+   flagged; row stays unverified.
+3. June 2025 C round (row 5): 5b and 5c share one origin and count as ONE
+   source. Row stays unverified unless an independent source is found. No
+   further searching unless the owner asks.
 
 Scope facts from the prospectus (apply to every round):
 
@@ -59,7 +73,7 @@ Scope facts from the prospectus (apply to every round):
 | 3a | B2轮融资 | 近10亿元人民币 | 更新于：2024-02-28 16:03 | https://news.pedaily.cn/202402/530406.shtml | 2 | raw/unitree/pedaily_202402_530406.txt | `宇树科技宣布完成B2轮融资` → company-side. |
 | 3b | B2 轮融资 | 近 10 亿元 | 2024-02-26 12:50 | https://hub.baai.ac.cn/view/35340 | 3 | raw/unitree/baai_35340.txt | Repost of 极客公园 WeChat post; says `文章部分内容转载自公众号「顺为资本」、「Unitree 宇树科技」` → the company's own WeChat announcement exists but was NOT FETCHED (URL not found). 极客公园's fund 变量资本 is a Unitree investor (page says so). |
 | 3c | Series B2 / a new funding round | nearly 1 billion yuan ($139 million) | Feb 24, 2024 05:54 AM | https://www.caixinglobal.com/2024-02-24/unitree-robotics-raises-nearly-139-million-in-series-b2-fundraising-102168284.html | 2 | raw/unitree/caixinglobal_102168284.txt | Says `led by food delivery giant Meituan`; 3a/3b say only `投资方包括美团`, no lead. Likely the same company release → may NOT be independent of 3a. Page may be paywalled; saved text is what was served. |
-| 3d | (no round name) 2024 年第一次增资 | 合计 60,034.4827 (单位：万元) | 2024 年 1 月 31 日 (agreement); 2024 年 2 月 2 日 (registration) | same as 1d | 1 | raw/unitree/sse_prospectus_shenbaogao_20260320.txt | 9 new investors incl. 汉海信息 24,802.7586. **Conflict to review:** press says 近10亿元; prospectus 合计 is 60,034.4827 万元. A share transfer (经乾二号 → 经纬壹号/经纬叁号, 5,600.6590 万元 and 1,549.3410 万元) happened in Jan 2024 too; I did not combine any numbers. |
+| 3d | (no round name) 2024 年第一次增资 | 合计 60,034.4827 (单位：万元) | 2024 年 1 月 31 日 (agreement); 2024 年 2 月 2 日 (registration) | same as 1d | 1 | raw/unitree/sse_prospectus_shenbaogao_20260320.txt | 9 new investors incl. 汉海信息 24,802.7586. **DISCREPANCY (flagged, owner decision 2026-11-13: keep both, pick neither):** press says 近10亿元人民币; prospectus 合计 is 60,034.4827 万元. Row stays unverified. A share transfer (经乾二号 → 经纬壹号/经纬叁号, 5,600.6590 万元 and 1,549.3410 万元) happened in Jan 2024 too; I did not combine any numbers. |
 | 4a | C轮融资 | 数亿元人民币 | 2024.09.24 20:52 (`9月24日消息`) | https://www.tmtpost.com/7262451.html | 2? | raw/unitree/tmtpost_7262451.txt | `宇树科技对外表示不予置评`; only investor 中关村科学城 confirmed participation (no amount). Tier 2 is doubtful (company did not confirm). |
 | 4b | (no round name) 2024 年第二次增资 | 合计 28,470.5173 (单位：万元) | 2024 年 8 月 31 日 (agreement); 2024 年 9 月 13 日 (registration) | same as 1d | 1 | raw/unitree/sse_prospectus_shenbaogao_20260320.txt | Investors incl. 机器人基金, 中关村科学城, 中证投资, 祥峰荣晟. **Naming conflict:** 4a calls Sept 2024 "C轮"; 5a (21jingji_20250619.txt) says the June 2025 C round `完成了去年底开启的C轮融资`. Rows 4 and 5 may be one C round in two closes, or two rounds. Owner decision. |
 | 5a | C轮融资 | (none) | 2025年06月19日 17:42 | http://www.21jingji.com/article/20250619/herald/7d8d1812f1b49d121b67d929fc5f8622.html | 2 | raw/unitree/21jingji_20250619.txt | Company insider confirms: `最近确实完成了C轮融资`. No amount from the company side. |
@@ -78,9 +92,9 @@ No round is a loan, grant, IPO or M&A per the saved text.
 |---|---|---|---|---|---|
 | 1 (2022 B轮系列) | Yes (2022-04-20) | **No** — `本轮系列融资合计数亿元` (pedaily_20220420_33444) is undisclosed | **No Tier 1 basis.** 投资界 text: `专注于消费级、行业级高性能四足机器人，灵巧六轴机械臂等研发、生产及销售`; no embodied-AI wording. Prospectus humanoid date is 2023-08. | Yes (company-side release, Tier 2) | **Fails.** Record as undisclosed → status excluded; gray-zone basis also missing. |
 | 2 (2022 第四次增资) | Yes (agreement 2022-08-15) | Yes in prospectus (`新增 3.4288 万元注册资本由中网投资以 2,000 万元现金出资认购`) | No Tier 1 basis before 2023-08 | **No announcement found** in 2022-2025; only the 2026 prospectus | **Fails** (not announced in period; gray zone). Lead only. |
-| 3 (2024 B2轮) | Yes | Yes, approx: `融资近10亿元人民币` (pedaily_202402_530406). Prospectus 合计 differs (60,034.4827 万元). | Yes: `2023 年 8 月，公司首款自研全尺寸人形机器人 H1 面市` (prospectus) | Yes (company-side, Tier 2); company WeChat Tier 1 not fetched | **Passes scope**, pending amount conflict and Tier 1 announcement. |
+| 3 (2024 B2轮) | Yes | Yes, approx: `融资近10亿元人民币` (pedaily_202402_530406). Prospectus 合计 differs (60,034.4827 万元). | Yes: `2023 年 8 月，公司首款自研全尺寸人形机器人 H1 面市` (prospectus) | Yes (company-side, Tier 2); company WeChat Tier 1 not fetched | **Passes scope.** Amount discrepancy flagged; both figures kept; row stays unverified (owner decision 2026-11-13). |
 | 4 (2024-09 C轮) | Yes | **No** — `完成数亿元人民币C轮融资` (tmtpost_7262451) | Yes (H1 2023-08, prospectus) | Doubtful: `宇树科技对外表示不予置评` | **Fails** on amount (undisclosed → excluded). Also "officially announced" not met by company. |
-| 5 (2025-06 C轮) | Yes | Media yes (`约7亿元人民币`, `近7亿元`), but not from company side; company insider confirms round only. Prospectus 合计 69,449.6968 万元. | Yes (H1 2023-08, prospectus) | Company confirmed completion via insider (21jingji); no formal announcement fetched | **Passes scope on period/entity/segment.** Amount from company side not in any Tier 1/2 announcement; two-source rule unclear (5b and 5c may share origin). Owner decision. |
+| 5 (2025-06 C轮) | Yes | Media yes (`约7亿元人民币`, `近7亿元`), but not from company side; company insider confirms round only. Prospectus 合计 69,449.6968 万元. | Yes (H1 2023-08, prospectus) | Company confirmed completion via insider (21jingji); no formal announcement fetched | **Passes scope on period/entity/segment.** Amount from company side not in any Tier 1/2 announcement. 5b and 5c count as ONE source (owner decision 2026-11-13); row stays unverified unless an independent source is found. |
 | 6 (2025-07 追加投资) | Yes | **No** amount | Yes | Investor (首程控股) announcement reported but NOT FETCHED | **Fails** (no amount; Tier 1 not fetched). |
 
 ## Not fetched (URLs/leads that could not be saved)
@@ -106,11 +120,14 @@ No round is a loan, grant, IPO or M&A per the saved text.
 
 ## Open questions for the owner
 
-1. Is the 2026 招股书 acceptable as the Tier 1 source for rounds announced
-   in 2022-2025, and which date goes into announce_date?
-2. B2: press `近10亿元` vs prospectus 合计 60,034.4827 万元.
-3. Is Sept 2024 (增资 合计 28,470.5173 万元) part of the same C轮 as
+Former questions 1-2 and the two-source question for row 5 are resolved
+(see "Owner decisions (2026-11-13)"). Still open:
+
+1. Is Sept 2024 (增资 合计 28,470.5173 万元) part of the same C轮 as
    June 2025 (合计 69,449.6968 万元)?
-4. 2022 rounds: Unitree was quadruped-only per saved sources; does it pass
+2. 2022 rounds: Unitree was quadruped-only per saved sources; does it pass
    the "quadruped makers that position themselves as embodied AI" test?
    No saved Tier 1 says so for 2022.
+3. Stage from the prospectus: decision 1 makes the prospectus Tier 1 for
+   stage, but it never names a stage (no 轮 names in any 增资 section).
+   stage_raw can therefore only come from press reports (Tier 2/3).

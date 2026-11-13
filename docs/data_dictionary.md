@@ -18,14 +18,21 @@ null unless a source in raw/ states them, with a supporting quote_zh.
   this spelling normalization, stage = Other. Plus-suffixed variants not in
   the list (Pre-A+, A++, D+轮) remain Other. This is spelling normalization,
   not mapping between different stages (e.g. "Pre-A+" is Other, not Pre-A).
-- announce_date: YYYY-MM-DD, date of FIRST announcement. If the source text
-  states the round date, announce_date uses it. If it only says "近日" or
-  gives a partial date, announce_date = publish_date of the earliest Tier 1
-  announcement. If no Tier 1 announcement exists, announce_date is null and
-  the row stays unverified.
-- announce_date_basis: text_stated or publish_date. text_stated when the
-  source text states the round date; publish_date when announce_date was
-  taken from the publish_date of the earliest Tier 1 announcement.
+- announce_date: YYYY-MM-DD, date of FIRST public announcement, taken from
+  the earliest dated public report of the round (a Tier 1 announcement or a
+  Tier 2 report; Tier 3 is never used). Prospectuses (招股书) and other
+  regulator filings published after the round are NOT used for
+  announce_date, and dates they state (agreement, shareholder meeting,
+  registration) are never copied into it. If the earliest report's text
+  states the announcement date, announce_date uses it. If it only says
+  "近日" or gives a partial date, announce_date = publish_date of that
+  report. If no dated Tier 1 or Tier 2 public report exists, announce_date
+  is null and the row stays unverified.
+- announce_date_basis: text_stated, publish_date or media_publish_date.
+  text_stated when the earliest report's text states the announcement
+  date; publish_date when announce_date is the publish_date of a Tier 1
+  announcement; media_publish_date when announce_date is the publish_date
+  of a Tier 2 media report.
 - amount_raw: text exactly as in the source (e.g. "近5亿元"). Never edited.
 - currency: derived from currency_raw by fixed rule: 元 or 人民币 = RMB;
   美元 = USD. Any other currency word: currency = as written, and the row is
@@ -110,8 +117,13 @@ round_id, field, llm_value, true_value, correct (Y/N), error_type, note.
 1. Source tiers. Tier 1: official announcements by the company or investor,
    regulator filings, 招股书 prospectuses. Tier 2: major media explicitly
    quoting the company side. Tier 3: aggregators/databases, leads only.
+   A prospectus or regulator filing is Tier 1 for amount, stage and
+   investors, but not for announce_date (see announce_date).
 2. Two-source rule: amount and date must match in at least two INDEPENDENT
-   sources, at least one Tier 1 or 2. Several outlets quoting one press
+   sources, at least one Tier 1 or 2. The date-match requirement applies
+   only between sources that report an announcement date; a source that
+   reports no announcement date (e.g. a prospectus) counts toward the
+   amount match only. Several outlets quoting one press
    release count as ONE source. Otherwise status = unverified and the row
    is excluded from pivots. Meeting this rule does not make a row verified;
    only the project owner sets status = verified, after manual checking.
@@ -175,3 +187,16 @@ Changed 2026-11-12 (second revision):
   date_in_text copy rules; lead_stated is true or null only.
 - Scope: defined what counts as a round, what "mainland China" means, the
   gray-zone rule for every company, and the known bias list.
+
+Changed 2026-11-13:
+
+- Rule 1: a prospectus (招股书) or regulator filing is Tier 1 for amount,
+  stage and investors, but not for announce_date.
+- announce_date: taken from the earliest dated public report of the round
+  (Tier 1 announcement or Tier 2 report), never from a prospectus or
+  filing. A Tier 1 announcement is no longer required; with no dated Tier 1
+  or Tier 2 report, announce_date is null and the row stays unverified.
+- announce_date_basis: added media_publish_date (publish_date of a Tier 2
+  media report).
+- Rule 2: the date-match requirement applies only between sources that
+  report an announcement date.
