@@ -1,0 +1,8 @@
+round_ref,field,llm_value,true_value,correct,error_type,note
+unitree-5c(v1),amount_raw,null,"约 7 亿元",N,missed_field,"v1 prompt only extracted the article's main round"
+unitree-5c(v1),investors,"1 investor (different round)","6 named investors",N,wrong_round,"v1 prompt rule: extract main round only"
+unitree-5b(v1),multiple_rounds_in_text,true,null,N,false_positive,"B2 mentioned as history only"
+unitree-5b(v2),amount_raw,null,null,Y,,"Article gives no amount for this round; 近10亿元 is the B2 history figure, not extracted"
+unitree-5c(v2),amount_raw,"约 7 亿元","约 7 亿元",Y,,"Matches source text incl. spaces; Tier 3 aggregator, no attribution"
+unitree-5c(v2),investors,"6 named investors","6 named investors",Y,,"Same 6 as 5b_v2; one origin, not independent"
+unitree-5c(v2),stage_raw,"C 轮","C+轮 in title, C 轮 in body",N,source_conflict,"Source disagrees with itself; row stays unverified"
