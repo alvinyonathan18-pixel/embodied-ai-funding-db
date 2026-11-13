@@ -31,15 +31,15 @@ Caveats on the prospectus:
   misaligned in the .txt (names and numbers on shifted lines). Check table
   values against the PDF in `raw/unitree/pdf/`.
 - It was first published 2026-03-20, outside the 2022-2025 period. Per the
-  owner decision of 2026-11-13 (docs/data_dictionary.md), it is Tier 1 for
-  amount, stage and investors but NOT for announce_date. The dates it
+  owner decisions of 2026-11-13 (docs/data_dictionary.md), it is Tier 1 for
+  amount and investors only, NOT for stage_raw or announce_date. The dates it
   states (agreement / shareholder meeting / registration) are never used
   as announce_date.
 
 ## Owner decisions (2026-11-13)
 
-1. Prospectus: Tier 1 for amount, stage and investors, not for
-   announce_date. announce_date comes from the earliest dated Tier 1 or
+1. Prospectus: Tier 1 for amount and investors only (corrected by
+   decision 4), not for announce_date. announce_date comes from the earliest dated Tier 1 or
    Tier 2 public report; with a Tier 2 report the basis is
    media_publish_date. Date matching under Rule 2 applies only between
    sources that report an announcement date.
@@ -49,6 +49,12 @@ Caveats on the prospectus:
 3. June 2025 C round (row 5): 5b and 5c share one origin and count as ONE
    source. Row stays unverified unless an independent source is found. No
    further searching unless the owner asks.
+4. Stage: the prospectus is NOT a source for stage_raw. stage_raw may come
+   from a Tier 2 report quoting the company side (or a Tier 1 company/
+   investor announcement), copied as written with its quote. If sources
+   disagree on stage, the row stays unverified. Stage is never derived
+   from the order of 增资 in the prospectus, so the prospectus rows (1d,
+   1e, 2, 3d, 4b, 5e) carry no stage.
 
 Scope facts from the prospectus (apply to every round):
 
@@ -120,14 +126,11 @@ No round is a loan, grant, IPO or M&A per the saved text.
 
 ## Open questions for the owner
 
-Former questions 1-2 and the two-source question for row 5 are resolved
-(see "Owner decisions (2026-11-13)"). Still open:
+Former questions 1-2, the two-source question for row 5 and the stage
+question are resolved (see "Owner decisions (2026-11-13)"). Still open:
 
 1. Is Sept 2024 (增资 合计 28,470.5173 万元) part of the same C轮 as
    June 2025 (合计 69,449.6968 万元)?
 2. 2022 rounds: Unitree was quadruped-only per saved sources; does it pass
    the "quadruped makers that position themselves as embodied AI" test?
    No saved Tier 1 says so for 2022.
-3. Stage from the prospectus: decision 1 makes the prospectus Tier 1 for
-   stage, but it never names a stage (no 轮 names in any 增资 section).
-   stage_raw can therefore only come from press reports (Tier 2/3).

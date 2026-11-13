@@ -10,6 +10,12 @@ null unless a source in raw/ states them, with a supporting quote_zh.
 - round_id: R001, R002, ... unique, never reused
 - company_id: must exist in Companies
 - stage_raw: stage text exactly as in the source (e.g. "Pre-A+轮"). Never edited.
+  Allowed sources: a Tier 1 announcement by the company or investor, or a
+  Tier 2 report that quotes the company side, copied as written with its
+  quote. A prospectus (招股书) or other regulator filing is NOT a source for
+  stage_raw (it lists capital increases without round names). Never derive
+  a stage from the order of capital increases in a prospectus. If sources
+  disagree on the stage, the row stays unverified.
 - stage: only from the standard list: Seed (种子轮), 天使轮, Pre-A, A轮,
   A+轮, B轮, B+轮, C轮, C+轮, D轮, E轮, F轮 and later letters, Strategic
   (战略融资), Pre-IPO, Other. Surface-form variants of a list value are
@@ -117,8 +123,9 @@ round_id, field, llm_value, true_value, correct (Y/N), error_type, note.
 1. Source tiers. Tier 1: official announcements by the company or investor,
    regulator filings, 招股书 prospectuses. Tier 2: major media explicitly
    quoting the company side. Tier 3: aggregators/databases, leads only.
-   A prospectus or regulator filing is Tier 1 for amount, stage and
-   investors, but not for announce_date (see announce_date).
+   A prospectus or regulator filing is Tier 1 for amount and investors
+   only; it is not a source for stage_raw or announce_date (see those
+   fields).
 2. Two-source rule: amount and date must match in at least two INDEPENDENT
    sources, at least one Tier 1 or 2. The date-match requirement applies
    only between sources that report an announcement date; a source that
@@ -200,3 +207,13 @@ Changed 2026-11-13:
   media report).
 - Rule 2: the date-match requirement applies only between sources that
   report an announcement date.
+
+Changed 2026-11-13 (second revision):
+
+- Rule 1 corrected: a prospectus (招股书) or regulator filing is Tier 1 for
+  amount and investors only, not for stage_raw (the earlier 2026-11-13
+  entry said "amount, stage and investors").
+- stage_raw: may come from a Tier 1 company/investor announcement or a
+  Tier 2 report quoting the company side, copied as written with its
+  quote. Never derived from the order of capital increases in a
+  prospectus. If sources disagree on the stage, the row stays unverified.
