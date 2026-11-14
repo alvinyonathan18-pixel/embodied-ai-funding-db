@@ -1,0 +1,4 @@
+{
+  "_note": "SYNTHETIC TEST DATA, NOT REAL. Extra case (g): year 2035 has an event but no cash-flow row; expected MISMATCH.",
+  "registration_date": {"value": "2035-01-15", "evidence_quote": "synthetic"}
+}

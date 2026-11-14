@@ -170,6 +170,35 @@ other sources.
 round_id may be blank when the source supports a company profile field.
 company_id is nullable.
 
+## data/cashflow_lines.csv
+
+Figures of the line 吸收投资收到的现金 in the consolidated cash-flow
+statement (合并现金流量表), used by scripts/check_year_totals.py for Rule
+2a(c). One row per figure per prospectus version.
+
+- year: cash-flow year (YYYY).
+- period_covered: period label as printed (e.g. "2024 年度",
+  "2025 年 1-9 月").
+- amount_wan_cny: figure in 万元, without thousands separators. A dash in
+  the source is stored as 0 and the note says "dash in source = nil".
+- source_version: "SSE 申报稿" or "cninfo 上会稿".
+- source_file: file name in raw/unitree/.
+- printed_page: page number printed in the prospectus (e.g. 1-1-159).
+- primary: Y for exactly one row per year; this is the figure the year is
+  reconciled against. Other rows of the same year are cross-check rows
+  (primary = N), compared with the primary row and reported, never used
+  for reconciliation. For 2025 the primary row is the cninfo full-year
+  figure; the SSE 1-9 月 figure is a cross-check row.
+- reconcile: Y if the year must reconcile exactly (event sum = primary
+  figure); N if it cannot, with the reason in note. N years are reported
+  as EXCLUDED and stay visible in the summary line. All rows of a year
+  carry the same value.
+- evidence_quote: exact substring of ONE text line of source_file. Where
+  the label and the figure are on different lines (misaligned SSE text
+  layout), the quote is the figure part of the line only, and note says
+  "label on a different line; check on the page image".
+- note: free text (line numbers, column position, reasons).
+
 ## Sheet Verification_Log
 
 round_id, field, llm_value, true_value, correct (Y/N), error_type, note.
@@ -397,3 +426,11 @@ Changed 2026-11-14:
   paid in 2025-03-14, and the cap table after E06 shows 上海宇翼 认缴
   17.1432 vs 实缴 16.1768 (difference 0.9664), so the cash arrived in
   2025, not 2022.
+
+Changed 2026-11-15:
+
+- Rule 2a(c) is now a script: scripts/check_year_totals.py compares the
+  yearly event sum (by cash-flow year) with data/cashflow_lines.csv (one
+  primary row per year; other rows are cross-checks). 2022 has
+  reconcile = N because E01, E02 and E04 are not extracted (narrowed
+  scope); it is reported as EXCLUDED, not hidden.

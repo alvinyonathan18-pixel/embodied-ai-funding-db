@@ -1,0 +1,6 @@
+year,period_covered,amount_wan_cny,source_version,source_file,printed_page,primary,reconcile,evidence_quote,note
+2031,2031 年度,300.50,SYN 全年稿,synthetic_year_source.txt,S-1,Y,Y,吸收投资收到的现金        300.50        499.99,Case (a): reconciles (SYN-Y01 100.50 + SYN-Y02 200 = 300.50). Quote expected PASS.
+2031,2031 年 1-9 月,300.00,SYN 申报稿,synthetic_year_source.txt,S-2,N,Y,300.00      499.99,Case (f): cross-check row that differs from its primary (300.00 vs 300.50). Quote expected FAIL (one digit changed; the file says 300.10).
+2032,2032 年度,499.99,SYN 全年稿,synthetic_year_source.txt,S-1,Y,Y,吸收投资收到的现金        300.50        499.99,Case (b): deliberate mismatch (SYN-Y03 500 vs 499.99). Quote expected PASS.
+2033,2033 年度,40,SYN 全年稿,synthetic_year_source.txt,S-3,Y,Y,吸收投资收到的现金        40.00,Case (c): SYN-Y04 registered 2031 but paid in 2033; grouped by paid_in_date. Quote expected PASS.
+2034,2034 年度,25,SYN 全年稿,synthetic_missing_source.txt,S-4,Y,N,吸收投资收到的现金        25.00,Case (d): reconcile = N (synthetic reason: events not extracted). Quote expected SKIP (file deliberately absent).

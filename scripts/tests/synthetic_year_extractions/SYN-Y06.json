@@ -1,0 +1,5 @@
+{
+  "_note": "SYNTHETIC TEST DATA, NOT REAL. Case (e): no usable date; expected ERROR.",
+  "registration_date": {"value": null, "evidence_quote": null},
+  "paid_in_date": {"value": null, "evidence_quote": null}
+}

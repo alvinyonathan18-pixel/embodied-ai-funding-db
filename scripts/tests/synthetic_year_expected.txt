@@ -1,0 +1,21 @@
+SYNTHETIC TEST DATA, NOT REAL. Expected results for scripts/check_year_totals.py.
+
+Command (from the repository root):
+  python scripts/check_year_totals.py --investor-rows scripts/tests/synthetic_year_investor_rows.csv --extractions scripts/tests/synthetic_year_extractions --cashflow scripts/tests/synthetic_year_cashflow_lines.csv --raw-dir scripts/tests
+
+Expected per case:
+  (a) 2031 reconciles: SYN-Y01 100.50 + SYN-Y02 200 = 300.50     -> OK
+  (b) 2032 deliberate mismatch: SYN-Y03 500 vs stated 499.99     -> MISMATCH (meant to fail)
+  (c) SYN-Y04 registered 2031-12-20, paid in 2033-02-01           -> counted in 2033 (OK);
+      if it were grouped by registration, 2031 would sum to 340.50 and fail
+  (d) 2034 reconcile = N                                          -> EXCLUDED, listed in the summary
+  (e) SYN-Y06 has no usable date                                  -> ERROR (meant to fail)
+  (f) 2031 1-9 月 cross-check 300.00 vs primary 300.50            -> CROSS-CHECK, DIFFERS
+      (reported, not a failure by itself)
+  (g) extra: 2035 has an event (SYN-Y07) but no cash-flow row     -> MISMATCH (meant to fail)
+  Quotes: 2031 primary, 2032, 2033 -> PASS; 2031 cross-check -> FAIL (meant to fail:
+      quote says 300.00, file says 300.10); 2034 -> SKIP (file deliberately absent)
+
+Expected summary line:
+  Summary: 2 OK, 2 MISMATCH, 1 EXCLUDED (years: 2034), 1 CROSS-CHECK (1 differ), 1 ERROR; quotes: 3 PASS, 1 FAIL, 1 SKIP
+Expected exit code: 1

@@ -1,0 +1,5 @@
+{
+  "_note": "SYNTHETIC TEST DATA, NOT REAL. Case (c): registration 2031, paid in 2033; must be counted in 2033, not 2031.",
+  "registration_date": {"value": "2031-12-20", "evidence_quote": "synthetic"},
+  "paid_in_date": {"value": "2033-02-01", "evidence_quote": "synthetic"}
+}

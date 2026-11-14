@@ -1,0 +1,4 @@
+{
+  "_note": "SYNTHETIC TEST DATA, NOT REAL. Case (b), year 2032; expected MISMATCH.",
+  "registration_date": {"value": "2032-05-05", "evidence_quote": "synthetic"}
+}
