@@ -21,8 +21,11 @@ Rules:
 - A blank or unparseable amount is an ERROR for that event (counts as a
   failure).
 - Duplicate event_id rows in the totals file are an ERROR.
+- stated_total_wan_cny = NONE (exact, uppercase) marks an event whose source
+  states no total. It is reported as NO_TOTAL with its sum and is not a
+  failure. NONE for an event with no investor rows is still a MISMATCH.
 
-Exit codes: 0 = every event OK, 1 = at least one MISMATCH or ERROR,
+Exit codes: 0 = every event OK or NO_TOTAL, 1 = at least one MISMATCH or ERROR,
             2 = usage error, missing file, or missing required column.
 """
 
@@ -36,6 +39,10 @@ DEFAULT_TOTALS = os.path.join("data", "event_totals.csv")
 
 ROW_COLUMNS = ("event_id", "investor_name_as_written", "amount_wan_cny")
 TOTAL_COLUMNS = ("event_id", "stated_total_wan_cny")
+
+# Literal value in stated_total_wan_cny for an event whose source states no total.
+NONE_MARKER = "NONE"
+NO_TOTAL = object()
 
 
 def read_csv(path, required_columns):
@@ -107,7 +114,11 @@ def main(argv):
                 f"{totals_path} line {line}: duplicate event_id"
             )
             continue
-        amount = parse_amount(row["stated_total_wan_cny"])
+        raw_total = (row["stated_total_wan_cny"] or "").strip()
+        if raw_total == NONE_MARKER:
+            totals[event_id] = NO_TOTAL
+            continue
+        amount = parse_amount(raw_total)
         if amount is None:
             errors.setdefault(event_id, []).append(
                 f"{totals_path} line {line}: invalid stated_total_wan_cny "
@@ -119,6 +130,7 @@ def main(argv):
     event_ids = list(sums) + [e for e in totals if e not in sums]
 
     failures = 0
+    no_total = 0
     for event_id in event_ids:
         if event_id in errors:
             failures += 1
@@ -132,7 +144,13 @@ def main(argv):
             continue
         if event_id not in sums:
             failures += 1
-            print(f"MISMATCH  {event_id}: sum=(no investor rows) stated={totals[event_id]}")
+            stated_text = NONE_MARKER if totals[event_id] is NO_TOTAL else totals[event_id]
+            print(f"MISMATCH  {event_id}: sum=(no investor rows) stated={stated_text}")
+            continue
+        if totals[event_id] is NO_TOTAL:
+            no_total += 1
+            print(f"NO_TOTAL  {event_id}: sum={sums[event_id]} (no stated total; "
+                  f"check via cash-flow reconciliation)")
             continue
         total_sum = sums[event_id]
         stated = totals[event_id]
@@ -144,7 +162,8 @@ def main(argv):
             failures += 1
             print(f"MISMATCH  {event_id}: sum={total_sum} stated={stated} diff={diff:+}")
 
-    print(f"\n{len(event_ids)} event(s), {failures} failure(s)")
+    print(f"\n{len(event_ids)} event(s), {failures} failure(s), "
+          f"{no_total} without stated total")
     return 1 if failures else 0
 
 

@@ -1,0 +1,23 @@
+{
+  "_note": "Source: raw/unitree/sse_prospectus_shenbaogao_20260320.txt, section 11、2025 年 6 月股权增资及股权激励计划扩容, sub-section （2）股权激励计划扩容, lines 2219-2227. event_type incentive_platform: line 2222 calls 上海宇翼 '公司股权激励平台'. No table and no 合计 for this event; amount and share count are stated in running text. amount_wan_cny: '人民币 14.4668 万元' on line 2223. share_count_wan: '14.4668 万股' on line 2224 (unit 万股 as written in the text). agreement_date: the date '2025 年 6 月 12 日' is on line 2222 (quoted); '签署《增资协议》' continues on line 2223, so no single-line quote shows date and agreement together. The 股东会 on line 2221 is dated 2025-06-06 and is not the agreement date. registration_date: the date is on line 2226 (same quote as E07); '工商变更登记' is on line 2227; the registration covers both the E07 股权增资 and this 股权激励计划扩容.",
+  "investor_name_as_written": {
+    "value": "上海宇翼",
+    "evidence_quote": "科技与上海宇翼签署《增资协议》"
+  },
+  "amount_wan_cny": {
+    "value": "14.4668",
+    "evidence_quote": "上海宇翼以人民币 14.4668 万元认购公司"
+  },
+  "share_count_wan": {
+    "value": "14.4668",
+    "evidence_quote": "新增发行的 14.4668 万股股份"
+  },
+  "agreement_date": {
+    "value": "2025-06-12",
+    "evidence_quote": "关于公司股权激励平台上海宇翼对公司的增资议案。2025 年 6 月 12 日，宇树"
+  },
+  "registration_date": {
+    "value": "2025-06-12",
+    "evidence_quote": "2025 年 6 月 12 日，宇树科技就上述 2025 年 6 月股权增资、股权激励计划"
+  }
+}

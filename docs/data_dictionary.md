@@ -21,6 +21,11 @@ null unless a source in raw/ states them, with a supporting quote_zh.
   (工商变更登记) for the capital increase as stated in the prospectus, with
   its quote. Null if the prospectus does not state it. Pivots group by
   registration_date.
+- paid_in_date: YYYY-MM-DD, optional. Date on which the subscribed
+  注册资本 was paid in (实缴), as stated in the prospectus, with its quote.
+  Filled only when the prospectus states a paid-in date that differs from
+  the registration. Used only for the cash-flow year in Rule 2a(c), not
+  for pivots.
 - stage_raw: optional; not used in pivots. Stage text exactly as in the
   source (e.g. "Pre-A+轮"). Never edited.
   Allowed sources: a Tier 1 announcement by the company or investor, or a
@@ -191,12 +196,20 @@ round_id, field, llm_value, true_value, correct (Y/N), error_type, note.
    may set status = verified, and only after all of:
    (a) every quote for the row passes scripts/check_quotes.py;
    (b) the sum of amount_wan_cny over the event's Round_Investor rows
-       equals the 合计 stated in the prospectus for that event;
+       equals the 合计 stated in the prospectus for that event. An event
+       whose prospectus text states no 合计 has stated_total_wan_cny =
+       NONE in data/event_totals.csv (reported as NO_TOTAL by
+       scripts/check_sums.py); (b) cannot be checked for it, so such an
+       event can only be verified through (c);
    (c) the yearly sum of events, both investor_round and
-       incentive_platform (by registration_date year), reconciles
+       incentive_platform, by cash-flow year (the year of paid_in_date if
+       that field is present, otherwise the year of registration_date),
+       reconciles
        with the cash-flow line 吸收投资收到的现金 in the prospectus, with
        any gap recorded in Verification_Log (round_id blank,
        field = cash_flow_reconciliation, year and gap in note).
+   Even when (a)-(c) hold, only the project owner (the user) sets
+   status = verified; scripts and Claude never do.
    Sums in (b) and (c) are Excel formulas used for checking only; their
    results are never stored as data values. The Sources sheet must state
    that these rows are single-origin (prospectus) (see origin_note).
@@ -365,3 +378,22 @@ Changed 2026-11-13 (seventh revision):
   rows (the E07 table gives 认购股份数, not 认缴注册资本). Reason: the
   2024 capital increase tables (e.g. E05, 2024 年第一次增资) give
   认缴注册资本 instead of 认购股份数.
+
+Changed 2026-11-14:
+
+- E01b is the 上海宇翼 component of the 2021-12-30 capital increase
+  agreement registered 2022-01-05 (2022 年第一次增资). The two other
+  investors in that increase (经乾二号, 海克斯康), i.e. E01, are not
+  extracted under the narrowed scope.
+- E08 and E01b have no stated 合计. They are listed in
+  data/event_totals.csv with stated_total_wan_cny = NONE, which
+  scripts/check_sums.py reports as NO_TOTAL (not a failure); a missing
+  event_id is still a MISMATCH. The yearly cash-flow reconciliation
+  (吸收投资收到的现金) is their only amount check, so they can only be
+  verified through Rule 2a(c). Only the user sets status = verified.
+- Rounds: added paid_in_date (optional, with quote). Rule 2a(c) now uses
+  the cash-flow year: the year of paid_in_date if present, otherwise the
+  year of registration_date. Reason: E01b was registered 2022-01-05 but
+  paid in 2025-03-14, and the cap table after E06 shows 上海宇翼 认缴
+  17.1432 vs 实缴 16.1768 (difference 0.9664), so the cash arrived in
+  2025, not 2022.
