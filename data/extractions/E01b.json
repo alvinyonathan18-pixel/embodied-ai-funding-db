@@ -1,5 +1,9 @@
 {
   "_note": "Source: raw/unitree/sse_prospectus_shenbaogao_20260320.txt, section 1、2022 年第一次增资, lines 1714-1751. Only the 上海宇翼 item of the first paragraph is extracted; the 经乾二号 and 海克斯康 items (line 1719-1720) are not. event_type incentive_platform: 上海宇翼 is the employee incentive platform (line 2222 of the same file: '公司股权激励平台上海宇翼'). No 合计 is stated for the 上海宇翼 component. amount_wan_cny and registered_capital_wan: both on line 1718 ('新增 0.9664 万元注册资本由上海宇翼以 0.9664 万元现金出资认购'; '出' and '资认购' are split across lines 1718-1719). share_count_wan is empty because the source gives 注册资本, not shares. agreement_date: the 《增资协议》 date '2021 年 12 月 30 日' is on line 1716 with '签署《增资协议》' on line 1717; the signatories named are '宇树有限、宇树有限原股东与新增股东经乾二号、海克斯康', and 上海宇翼's subscription is a clause of that same agreement (line 1717-1718). registration_date: the year '2022' is at the end of line 1725; '年 1 月 5 日' and '工商变更登记' are on line 1726 (quoted). paid_in_date: lines 1749-1751 (paragraph after the post-increase shareholder table) state that 上海宇翼 had paid in 1.1765 万元 注册资本 and that the remaining 0.9664 万元 注册资本 was paid in on 2025-03-14. The year '2025' is at the end of the previous line, line 1750 ('上海宇翼于 2025'); the month/day is on line 1751 (quoted).",
+  "event_type": {
+    "value": "incentive_platform",
+    "evidence_quote": "公司股权激励平台上海宇翼"
+  },
   "investor_name_as_written": {
     "value": "上海宇翼",
     "evidence_quote": "注册资本由上海宇翼以 0.9664 万元现金出"

@@ -1,0 +1,6 @@
+{
+  "_note": "SYNTHETIC TEST DATA, NOT REAL. paid_in_date case: registered 2031, paid in 2033; cash_flow_year must be 2033.",
+  "event_type": {"value": "incentive_platform", "evidence_quote": "synthetic"},
+  "registration_date": {"value": "2031-12-20", "evidence_quote": "synthetic"},
+  "paid_in_date": {"value": "2033-02-01", "evidence_quote": "synthetic"}
+}

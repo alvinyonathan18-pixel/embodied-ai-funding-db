@@ -1,0 +1,5 @@
+event_id,investor_name_as_written,amount_wan_cny,share_count_wan,registered_capital_wan
+SYN-E01,Fictional Alpha Capital,100.10,1.5,
+SYN-E01,Fictional Beta Ventures,200.20,3,
+SYN-E02,Fictional Platform,0.5000,,0.5000
+SYN-E03,Fictional Gamma Fund,50,,2

@@ -1,0 +1,5 @@
+{
+  "_note": "SYNTHETIC TEST DATA, NOT REAL. Valid event; the run still writes nothing because other events have errors.",
+  "event_type": {"value": "investor_round", "evidence_quote": "synthetic"},
+  "registration_date": {"value": "2031-01-01", "evidence_quote": "synthetic"}
+}

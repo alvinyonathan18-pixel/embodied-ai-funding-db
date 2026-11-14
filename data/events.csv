@@ -1,0 +1,6 @@
+event_id,event_type,agreement_date,registration_date,paid_in_date,cash_flow_year,amount_total_wan_cny,investor_count,stated_total_wan_cny,unit_basis,status
+E07,investor_round,2025-06-06,2025-06-12,,2025,69449.6968,27,69449.6968,share_count_wan,
+E05,investor_round,2024-01-31,2024-02-02,,2024,60034.4827,10,60034.4827,registered_capital_wan,
+E06,investor_round,2024-08-31,2024-09-13,,2024,28470.5173,14,28470.5173,registered_capital_wan,
+E08,incentive_platform,2025-06-12,2025-06-12,,2025,14.4668,1,NONE,share_count_wan,
+E01b,incentive_platform,2021-12-30,2022-01-05,2025-03-14,2025,0.9664,1,NONE,registered_capital_wan,

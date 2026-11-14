@@ -1,0 +1,21 @@
+SYNTHETIC TEST DATA, NOT REAL. Expected results for scripts/build_events.py.
+Run from the repository root. OUT is any scratch path outside the repo.
+
+1) Clean set (expected exit 0):
+  python scripts/build_events.py --investor-rows scripts/tests/synthetic_events_ok/investor_rows.csv --totals scripts/tests/synthetic_events_ok/event_totals.csv --extractions scripts/tests/synthetic_events_ok/extractions --status-from scripts/tests/synthetic_events_ok/existing_events.csv --out OUT
+  OUT must be identical to scripts/tests/synthetic_events_ok/expected_events.csv:
+  - SYN-E01: existing status "verified" (as if set by the owner) survives the
+    rebuild unchanged; its stale columns in existing_events.csv (amount 1,
+    count 1) are rebuilt to 300.30 and 2.
+  - SYN-E02: registered 2031-12-20, paid in 2033-02-01 -> cash_flow_year 2033.
+  - SYN-E03: new event -> empty status.
+  Running the same command again without --status-from (status read from
+  OUT itself) must give the same file.
+
+2) Error set (expected exit 1, nothing written to OUT):
+  python scripts/build_events.py --investor-rows scripts/tests/synthetic_events_err/investor_rows.csv --totals scripts/tests/synthetic_events_err/event_totals.csv --extractions scripts/tests/synthetic_events_err/extractions --out OUT
+  - SYN-E11: valid, but not written because the run has errors.
+  - SYN-E12: no date                 -> ERROR (meant to fail)
+  - SYN-E13: mixed unit_basis        -> ERROR (meant to fail)
+  - SYN-E14: no extraction JSON      -> ERROR (meant to fail; the file is deliberately absent)
+  Expected last line: 4 event(s), 3 ERROR; nothing written to OUT

@@ -1,0 +1,5 @@
+{
+  "_note": "SYNTHETIC TEST DATA, NOT REAL. New event: not in existing_events.csv; status must be empty.",
+  "event_type": {"value": "investor_round", "evidence_quote": "synthetic"},
+  "registration_date": {"value": "2032-06-30", "evidence_quote": "synthetic"}
+}

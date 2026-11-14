@@ -1,0 +1,6 @@
+event_id,investor_name_as_written,amount_wan_cny,share_count_wan,registered_capital_wan
+SYN-E11,Fictional Delta Partners,10,1,
+SYN-E12,Fictional Epsilon Fund,20,2,
+SYN-E13,Fictional Zeta Holdings,30,3,
+SYN-E13,Fictional Eta Capital,40,,4
+SYN-E14,Fictional Theta Fund,50,5,
