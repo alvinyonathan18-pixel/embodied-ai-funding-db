@@ -10,3 +10,6 @@ E06_total,21,"wall clock upper bound: E05 commit 20:43 to E06 commit 21:04; incl
 E08_E01b_extraction,8,"wall clock upper bound 23:23-23:31 on 2026-11-14; includes waiting for the prompt"
 E08_E01b_review_and_rule_change,33,"wall clock upper bound 23:31 on 2026-11-14 to 00:04 on 2026-11-15; one-off design cost: cash-flow year rule 2a(c), paid_in_date field, NONE marker in check_sums.py"
 check_year_totals_script,8,"wall clock upper bound 00:30-00:38 on 2026-11-15; includes script, synthetic tests and docs"
+build_events_csv,,"duration not measured; start time not recorded. Commits (from git log): 6ea1b07 2026-11-15 00:53:11 +08:00"
+readme_results_and_manual_check,,"duration not measured; start time not recorded. Commits (from git log): 3bdac72 2026-11-15 11:22:01 +08:00"
+status_and_gitignore_fix,,"duration not measured; start time not recorded. Commits (from git log): 745ac39 2026-11-15 11:25:20 +08:00, 2ddb742 2026-11-15 11:29:26 +08:00"
