@@ -24,7 +24,7 @@ One table per event, copied from data/events.csv. The last two rows are recomput
 | investor_count | 27 |
 | stated_total_wan_cny | 69449.6968 |
 | unit_basis | share_count_wan |
-| status | (empty) |
+| status | verified |
 | investor_rows.csv sum | 69449.6968 (matches) |
 | investor_rows.csv count | 27 (matches) |
 
@@ -42,7 +42,7 @@ One table per event, copied from data/events.csv. The last two rows are recomput
 | investor_count | 10 |
 | stated_total_wan_cny | 60034.4827 |
 | unit_basis | registered_capital_wan |
-| status | (empty) |
+| status | verified |
 | investor_rows.csv sum | 60034.4827 (matches) |
 | investor_rows.csv count | 10 (matches) |
 
@@ -60,7 +60,7 @@ One table per event, copied from data/events.csv. The last two rows are recomput
 | investor_count | 14 |
 | stated_total_wan_cny | 28470.5173 |
 | unit_basis | registered_capital_wan |
-| status | (empty) |
+| status | verified |
 | investor_rows.csv sum | 28470.5173 (matches) |
 | investor_rows.csv count | 14 (matches) |
 
@@ -78,7 +78,7 @@ One table per event, copied from data/events.csv. The last two rows are recomput
 | investor_count | 1 |
 | stated_total_wan_cny | NONE |
 | unit_basis | share_count_wan |
-| status | (empty) |
+| status | verified |
 | investor_rows.csv sum | 14.4668 (matches) |
 | investor_rows.csv count | 1 (matches) |
 
@@ -96,7 +96,7 @@ One table per event, copied from data/events.csv. The last two rows are recomput
 | investor_count | 1 |
 | stated_total_wan_cny | NONE |
 | unit_basis | registered_capital_wan |
-| status | (empty) |
+| status | verified |
 | investor_rows.csv sum | 0.9664 (matches) |
 | investor_rows.csv count | 1 (matches) |
 
