@@ -1,0 +1,4 @@
+{
+  "_note": "SYNTHETIC TEST DATA, NOT REAL. Deliberate FAIL: the quote says 6 月, the source says 5 月. Expected 0 PASS, 1 FAIL, 0 SKIP.",
+  "registration_date": {"value": "2041-05-01", "evidence_quote": "2041 年 6 月 1 日，合成平台完成增资"}
+}

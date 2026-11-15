@@ -1,0 +1,5 @@
+{
+  "_note": "SYNTHETIC TEST DATA, NOT REAL. All quotes exist in source.txt: expected 2 PASS, 0 FAIL, 0 SKIP.",
+  "registration_date": {"value": "2041-03-01", "evidence_quote": "2041 年 3 月 1 日，合成公司完成工商变更登记"},
+  "investors": [{"name": "合成投资甲", "role_raw": null, "evidence_quote": "合成投资甲认购 0.1 万元"}]
+}

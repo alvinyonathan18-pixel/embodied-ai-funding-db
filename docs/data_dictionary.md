@@ -250,7 +250,11 @@ round_id, field, llm_value, true_value, correct (Y/N), error_type, note.
    those rows only.
 2a. Verification rule for prospectus-based rows. Only the project owner
    may set status = verified, and only after all of:
-   (a) every quote for the row passes scripts/check_quotes.py;
+   (a) every quote for the row passes scripts/check_quotes.py. This
+       applies only to fields that have an evidence quote; investor-row
+       attribution (which name has which amount) is checked by (b), (c)
+       and a manual page-image check that must be recorded in
+       data/verification_log.csv;
    (b) the sum of amount_wan_cny over the event's Round_Investor rows
        equals the 合计 stated in the prospectus for that event. An event
        whose prospectus text states no 合计 has stated_total_wan_cny =
@@ -468,3 +472,12 @@ Changed 2026-11-15:
   quote is the event's section heading, and the note says no 上海宇翼 is
   among the subscribers. data/events.csv is built from the JSONs by
   scripts/build_events.py; status in it stays owned by the project owner.
+
+Changed 2026-11-15 (second revision):
+
+- Rule 2a(a) applies only to fields that have an evidence quote. The
+  investor rows in data/investor_rows.csv have no quote column, so
+  investor-row attribution (which name has which amount) is checked by
+  Rule 2a(b), Rule 2a(c) and a manual page-image check that must be
+  recorded in data/verification_log.csv. Reason: (b) and (c) cannot detect
+  swapped amounts between two investors or a misspelled name.

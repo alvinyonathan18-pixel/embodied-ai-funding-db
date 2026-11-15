@@ -1,0 +1,5 @@
+{
+  "_note": "SYNTHETIC TEST DATA, NOT REAL. One PASS, one null field (SKIP by check_quotes.py). Expected 1 PASS, 0 FAIL, 1 SKIP.",
+  "paid_in_date": {"value": "2042-01-10", "evidence_quote": "2042 年 1 月 10 日实缴"},
+  "agreement_date": {"value": null, "evidence_quote": null}
+}

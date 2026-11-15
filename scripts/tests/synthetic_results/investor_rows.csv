@@ -1,0 +1,6 @@
+event_id,investor_name_as_written,amount_wan_cny,share_count_wan,registered_capital_wan
+SYN-R01,合成投资甲,0.1,0.01,
+SYN-R01,合成投资乙,0.2,0.02,
+SYN-R02,合成平台,100.50,,100.50
+SYN-R03,合成投资丙,50,,5
+SYN-R04,合成投资丁,10,1,

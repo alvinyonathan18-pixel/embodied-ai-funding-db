@@ -1,0 +1,7 @@
+year,period_covered,amount_wan_cny,source_version,source_file,printed_page,primary,reconcile,evidence_quote,note
+2041,2041 年度,100.80,SYN 甲稿,synthetic_absent.txt,9-9-1,Y,Y,100.80,synthetic
+2041,2041 年 1-9 月,90.00,SYN 乙稿,synthetic_absent.txt,9-9-2,N,Y,90.00,synthetic cross-check
+2042,2042 年度,50.00,SYN 甲稿,synthetic_absent.txt,9-9-1,Y,Y,50.00,synthetic
+2043,2043 年度,9.99,SYN 甲稿,synthetic_absent.txt,9-9-1,Y,Y,9.99,synthetic deliberate mismatch
+2044,2044 年度,77,SYN 甲稿,synthetic_absent.txt,9-9-1,Y,N,77,synthetic excluded year
+2045,2045 年度,0,SYN 甲稿,synthetic_absent.txt,9-9-1,Y,Y,-,dash in source = nil. synthetic nil year

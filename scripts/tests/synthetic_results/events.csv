@@ -1,0 +1,5 @@
+event_id,event_type,agreement_date,registration_date,paid_in_date,cash_flow_year,amount_total_wan_cny,investor_count,stated_total_wan_cny,unit_basis,status
+SYN-R01,investor_round,2041-02-20,2041-03-01,,2041,0.3,2,0.3,share_count_wan,
+SYN-R02,incentive_platform,2041-04-20,2041-05-01,,2041,100.50,1,NONE,registered_capital_wan,synthetic-status-kept
+SYN-R03,investor_round,2040-11-20,2040-12-01,2042-01-10,2042,50,1,50,registered_capital_wan,
+SYN-R04,investor_round,2043-01-20,2043-02-01,,2043,10,1,10,share_count_wan,

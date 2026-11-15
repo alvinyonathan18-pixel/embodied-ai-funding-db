@@ -1,0 +1,24 @@
+SYNTHETIC SAVED OUTPUT, shaped like scripts/check_year_totals.py output.
+== Yearly reconciliation (吸收投资收到的现金)
+OK          2041: sum=100.80 stated=100.80 diff=0 [2041 年度, SYN 甲稿, p. 9-9-1]
+            events: SYN-R01=0.3 (registration_date 2041-03-01), SYN-R02=100.50 (registration_date 2041-05-01)
+CROSS-CHECK 2041: 90.00 [2041 年 1-9 月, SYN 乙稿] DIFFERS from primary (diff=-10.80) 100.80 [2041 年度, SYN 甲稿]
+OK          2042: sum=50 stated=50.00 diff=0 [2042 年度, SYN 甲稿, p. 9-9-1]
+            events: SYN-R03=50 (paid_in_date 2042-01-10)
+MISMATCH    2043: sum=10 stated=9.99 diff=+0.01 [2043 年度, SYN 甲稿, p. 9-9-1]
+            events: SYN-R04=10 (registration_date 2043-02-01)
+EXCLUDED    2044: sum=0 stated=77 diff=-77 [2044 年度, SYN 甲稿, p. 9-9-1]
+            events: (none)
+            note: synthetic excluded year
+OK          2045: sum=0 stated=0 diff=0 [2045 年度, SYN 甲稿, p. 9-9-1]
+            events: (none)
+
+== Evidence quotes (exact substring of one line)
+SKIP  cashflow_lines.csv line 2 (2041, SYN 甲稿): synthetic_absent.txt file not on disk
+SKIP  cashflow_lines.csv line 3 (2041, SYN 乙稿): synthetic_absent.txt file not on disk
+SKIP  cashflow_lines.csv line 4 (2042, SYN 甲稿): synthetic_absent.txt file not on disk
+SKIP  cashflow_lines.csv line 5 (2043, SYN 甲稿): synthetic_absent.txt file not on disk
+SKIP  cashflow_lines.csv line 6 (2044, SYN 甲稿): synthetic_absent.txt file not on disk
+SKIP  cashflow_lines.csv line 7 (2045, SYN 甲稿): synthetic_absent.txt file not on disk
+
+Summary: 3 OK, 1 MISMATCH, 1 EXCLUDED (years: 2044), 1 CROSS-CHECK (1 differ), 0 ERROR; quotes: 0 PASS, 0 FAIL, 6 SKIP

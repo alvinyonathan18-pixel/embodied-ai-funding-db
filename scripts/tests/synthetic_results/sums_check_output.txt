@@ -1,0 +1,6 @@
+OK        SYN-R01: sum=0.3 stated=0.3 diff=0
+NO_TOTAL  SYN-R02: sum=100.50 (no stated total; check via cash-flow reconciliation)
+OK        SYN-R03: sum=50 stated=50 diff=0
+OK        SYN-R04: sum=10 stated=10 diff=0
+
+4 event(s), 0 failure(s), 1 without stated total

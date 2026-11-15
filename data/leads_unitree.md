@@ -27,7 +27,10 @@ Caveats on the prospectus:
 - It lists capital increases (增资) with per-investor 增资款 and a 合计
   line. It never uses round names (B轮, B2轮, C轮). Matching a 增资 to a
   press "round" is a judgment the owner must make; I did not make it.
-- Text was extracted with `pdftotext -layout`. Table columns are partly
+- The saved .txt files are reproduced byte for byte by
+  `pdftotext -layout -enc UTF-8` (pdftotext 4.06, xpdf) run on the saved
+  PDFs; the command originally run on 2026-11-13 was not recorded.
+  Table columns are partly
   misaligned in the .txt (names and numbers on shifted lines). Check table
   values against the PDF in `raw/unitree/pdf/`.
 - It was first published 2026-03-20, outside the 2022-2025 period. Per the

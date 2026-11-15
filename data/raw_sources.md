@@ -24,8 +24,15 @@ another outlet, that is noted. These are LEADS; nothing here is verified.
 
 Downloaded with curl. Originals in raw/unitree/html/ and raw/unitree/pdf/;
 full visible text in raw/unitree/*.txt (HTML: scripts/styles removed; PDF:
-`pdftotext -layout`, table columns may be misaligned). LEADS, not verified.
-See data/leads_unitree.md.
+the saved .txt files are reproduced byte for byte by
+`pdftotext -layout -enc UTF-8` (pdftotext 4.06, xpdf) run on the saved
+PDFs; the command originally run on 2026-11-13 was not recorded; see
+"Prospectus file hashes" below; table columns may be misaligned). The two prospectus
+files (sse_prospectus_shenbaogao_20260320.txt and
+cninfo_prospectus_shanghuigao_20260525.txt) are primary sources (Tier 1)
+used for extraction; values extracted from them stay unverified until the
+project owner sets status. The press pages in this table are leads only,
+used for comparison, never to fill a value. See data/leads_unitree.md.
 
 | File (raw/unitree/) | URL | Publisher | Access date | Note |
 |---|---|---|---|---|
@@ -43,6 +50,25 @@ See data/leads_unitree.md.
 | sina_infaqzvp3786779.txt | https://finance.sina.com.cn/tech/discovery/2025-06-20/doc-infaqzvp3786779.shtml | 新浪科技 (快科技) | 2026-11-13 | |
 | sina_infasynr2900739.txt | https://finance.sina.com.cn/tech/roll/2025-06-20/doc-infasynr2900739.shtml | 新浪科技 (来源：IT桔子) | 2026-11-13 | Aggregator, Tier 3 |
 | qq_20250707A053XA00.txt | https://news.qq.com/rain/a/20250707A053XA00 | 腾讯新闻 (IT桔子官方账号) | 2026-11-13 | Aggregator, Tier 3 |
+
+### Prospectus file hashes (computed 2026-11-15)
+
+SHA-256 computed with scripts/hash_raw.py (python scripts/hash_raw.py
+raw/unitree) on 2026-11-15. Paths are relative to raw/unitree/.
+
+| File | SHA-256 | Size (bytes) |
+|---|---|---|
+| pdf/sse_prospectus_shenbaogao_20260320.pdf | bfc09ad6fc98a2d3a76096c3411b90f0990b047d1fec11cee0d10fd9bb76ac5d | 6544738 |
+| pdf/cninfo_prospectus_shanghuigao_20260525.pdf | d44c035e2d957cd9040edb1770c27f3b58d53293a74e3b36f75f1b54b2b5442b | 6446427 |
+| sse_prospectus_shenbaogao_20260320.txt | 3cac0015a595aaabca9543fc3eec3467a522d8953d5b35f0bbe3c3a7c1165605 | 1004450 |
+| cninfo_prospectus_shanghuigao_20260525.txt | 71b224dbdb33860e97cb45d52bb253f1169e1847bcfd9863fa159aee9e0437a0 | 1002534 |
+
+Text conversion: the pdftotext on PATH on 2026-11-15 is "pdftotext version
+4.06 [www.xpdfreader.com]" (xpdf). The version used on 2026-11-13 was not
+recorded at the time. On 2026-11-15, re-running
+`pdftotext -layout -enc UTF-8 <pdf> <txt>` with version 4.06 on each PDF
+produced a file byte-identical to the saved .txt (checked with cmp).
+`pdftotext -layout` without `-enc UTF-8` produces a different file.
 
 ## raw/noematrix/ (穹彻智能), access date 2026-11-13
 
