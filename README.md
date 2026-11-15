@@ -86,6 +86,16 @@ python scripts/check_quotes.py data/extractions/E05.json raw/unitree/sse_prospec
 Repeat for E06, E07, E08 and E01b (all quote the same SSE file). One PASS,
 FAIL or SKIP line per field and a summary line; any FAIL is a failure.
 
+The quote checks depend on the exact saved .txt, which was produced by
+xpdf's pdftotext 4.06. Before running check_quotes.py, compare the SHA-256
+of the .txt files (`python scripts/hash_raw.py raw/unitree`) with the table
+in data/raw_sources.md. A different pdftotext implementation (for example
+poppler's) lays out columns with different spacing, and the stated_total
+quotes of E05, E06 and E07 then fail, because those quotes contain layout
+spacing. This was observed on 2026-11-15 with poppler pdftotext 24.02.0 by
+an AI assistant outside this repository; it could not be reproduced on the
+project machine, so it is an observation, not a verified result.
+
 ```bash
 python scripts/make_results.py
 ```
@@ -133,6 +143,9 @@ should match section (c) of docs/results.md.
   - Needed files, both in `raw/unitree/`: `sse_prospectus_shenbaogao_20260320.txt` (SSE 申报稿) and `cninfo_prospectus_shanghuigao_20260525.txt` (cninfo 上会稿), named exactly as in data/cashflow_lines.csv.
   - The user must obtain the PDFs from SSE and cninfo; the source URLs, access date and SHA-256 hashes are recorded in data/raw_sources.md.
   - `pdftotext -layout -enc UTF-8 <pdf> <txt>` with pdftotext 4.06 (xpdf) reproduces the saved .txt files byte for byte; compare the result with the hashes in data/raw_sources.md.
+  - The quote checks depend on the exact saved .txt, which was produced by xpdf's pdftotext 4.06. A different pdftotext implementation (for example poppler's) lays out columns with different spacing, and the stated_total quotes of E05, E06 and E07 then fail, because those quotes contain layout spacing.
+  - This was observed on 2026-11-15 with poppler pdftotext 24.02.0 by an AI assistant outside this repository. It could not be reproduced on the project machine, so it is recorded as an observation, not as a verified result.
+  - Before running check_quotes.py, compare the SHA-256 of the .txt files with the table in data/raw_sources.md.
 - Single company: the case was chosen because a prospectus exists, which is itself a selection effect (see docs/scope.md).
 - The prospectus lists capital increases without round names, so no stage (A轮, B轮, ...) is reported.
 
